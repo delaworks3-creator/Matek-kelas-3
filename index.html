@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Misi Pengukuran Panjang - Ibu Ega</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 15px;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #e0f7fa, #fff8e1);
+}
+
+.container {
+    max-width: 720px;
+    margin: auto;
+    background: white;
+    border-radius: 28px;
+    padding: 22px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+.header {
+    text-align: center;
+    background: linear-gradient(135deg, #0288d1, #26c6da);
+    color: white;
+    padding: 20px;
+    border-radius: 22px;
+    margin-bottom: 20px;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 28px;
+}
+
+.teacher {
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.mission {
+    text-align: center;
+    font-size: 21px;
+    font-weight: bold;
+    color: #0277bd;
+    margin: 18px 0;
+}
+
+.question {
+    background: #fffdf5;
+    border: 3px solid #b3e5fc;
+    border-radius: 22px;
+    padding: 20px;
+    margin-bottom: 22px;
+}
+
+.number {
+    display: inline-block;
+    background: #0288d1;
+    color: white;
+    padding: 8px 14px;
+    border-radius: 12px;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+.picture {
+    text-align: center;
+    font-size: 75px;
+    margin: 12px 0;
+}
+
+.story {
+    font-size: 19px;
+    line-height: 1.6;
+    color: #333;
+    font-weight: bold;
+    margin-bottom: 16px;
+}
+
+.question-text {
+    font-size: 18px;
+    font-weight: bold;
+    color: #0277bd;
+    margin-bottom: 14px;
+}
+
+.option {
+    display: block;
+    width: 100%;
+    color: #333;
+    background: white;
+    border: 2px solid #ddd;
+    border-radius: 15px;
+    padding: 14px;
+    margin: 9px 0;
+    font-size: 17px;
+    text-align: left;
+    cursor: pointer;
+}
+
+.option:hover {
+    background: #e1f5fe;
+}
+
+.correct {
+    background: #c8e6c9 !important;
+    border-color: #43a047 !important;
+}
+
+.wrong {
+    background: #ffcdd2 !important;
+    border-color: #e53935 !important;
+}
+
+.feedback {
+    min-height: 30px;
+    text-align: center;
+    margin-top: 12px;
+    font-size: 19px;
+    font-weight: bold;
+}
+
+.main-button {
+    display: block;
+    width: 100%;
+    max-width: 330px;
+    margin: 18px auto;
+    padding: 16px;
+    border: none;
+    border-radius: 16px;
+    background: #0288d1;
+    color: white;
+    font-size: 19px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.main-button:hover {
+    background: #01579b;
+}
+
+#score {
+    text-align: center;
+    background: #fff3e0;
+    border: 3px solid #ffb300;
+    border-radius: 20px;
+    padding: 22px;
+    margin-top: 25px;
+    font-size: 25px;
+    font-weight: bold;
+    line-height: 1.7;
+}
+
+.hidden {
+    display: none;
+}
+
+.footer {
+    text-align: center;
+    color: #777;
+    margin-top: 25px;
+    font-size: 14px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="header">
+    <h1>📏 Misi Pengukuran Panjang</h1>
+
+    <div class="teacher">
+        Matematika Kelas 3<br>
+        👩‍🏫 Bersama Ibu Ega<br>
+        🏫 SD Negeri 71 Maluku Tengah
+    </div>
+</div>
+
+<div class="mission">
+    🎯 Ayo selesaikan 5 soal cerita!
+</div>
+
+
+<!-- SOAL 1 -->
+
+<div class="question">
+
+<span class="number">SOAL 1</span>
+
+<div class="picture">
+    📏✏️
+</div>
+
+<div class="story">
+    Rina mempunyai pensil sepanjang 15 cm.
+    Ia membeli pensil baru yang panjangnya 10 cm.
+</div>
+
+<div class="question-text">
+    Berapa panjang kedua pensil Rina seluruhnya?
+</div>
+
+<button class="option" onclick="answer(this, false, 1)">
+    A. 20 cm
+</button>
+
+<button class="option" onclick="answer(this, true, 1)">
+    B. 25 cm
+</button>
+
+<button class="option" onclick="answer(this, false, 1)">
+    C. 30 cm
+</button>
+
+<button class="option" onclick="answer(this, false, 1)">
+    D. 35 cm
+</button>
+
+<div id="f1" class="feedback"></div>
+
+</div>
+
+
+<!-- SOAL 2 -->
+
+<div class="question">
+
+<span class="number">SOAL 2</span>
+
+<div class="picture">
+    🎀📏
+</div>
+
+<div class="story">
+    Siti mempunyai pita sepanjang 50 cm.
+    Ia menggunakan 20 cm untuk menghias buku.
+</div>
+
+<div class="question-text">
+    Berapa cm pita Siti yang masih tersisa?
+</div>
+
+<button class="option" onclick="answer(this, false, 2)">
+    A. 20 cm
+</button>
+
+<button class="option" onclick="answer(this, true, 2)">
+    B. 30 cm
+</button>
+
+<button class="option" onclick="answer(this, false, 2)">
+    C. 40 cm
+</button>
+
+<button class="option" onclick="answer(this, false, 2)">
+    D. 70 cm
+</button>
+
+<div id="f2" class="feedback"></div>
+
+</div>
+
+
+<!-- SOAL 3 -->
+
+<div class="question">
+
+<span class="number">SOAL 3</span>
+
+<div class="picture">
+    🪢📏
+</div>
+
+<div class="story">
+    Beni memiliki tali sepanjang 1 meter.
+    Ia membeli lagi tali sepanjang 50 cm.
+</div>
+
+<div class="question-text">
+    Berapa panjang tali Beni seluruhnya?
+</div>
+
+<button class="option" onclick="answer(this, false, 3)">
+    A. 100 cm
+</button>
+
+<button class="option" onclick="answer(this, true, 3)">
+    B. 150 cm
+</button>
+
+<button class="option" onclick="answer(this, false, 3)">
+    C. 200 cm
+</button>
+
+<button class="option" onclick="answer(this, false, 3)">
+    D. 50 cm
+</button>
+
+<div id="f3" class="feedback"></div>
+
+</div>
+
+
+<!-- SOAL 4 -->
+
+<div class="question">
+
+<span class="number">SOAL 4</span>
+
+<div class="picture">
+    🌳📏
+</div>
+
+<div class="story">
+    Sebuah tanaman tingginya 120 cm.
+    Setelah beberapa bulan, tanaman itu bertambah tinggi 30 cm.
+</div>
+
+<div class="question-text">
+    Berapa tinggi tanaman sekarang?
+</div>
+
+<button class="option" onclick="answer(this, false, 4)">
+    A. 130 cm
+</button>
+
+<button class="option" onclick="answer(this, false, 4)">
+    B. 140 cm
+</button>
+
+<button class="option" onclick="answer(this, true, 4)">
+    C. 150 cm
+</button>
+
+<button class="option" onclick="answer(this, false, 4)">
+    D. 160 cm
+</button>
+
+<div id="f4" class="feedback"></div>
+
+</div>
+
+
+<!-- SOAL 5 -->
+
+<div class="question">
+
+<span class="number">SOAL 5</span>
+
+<div class="picture">
+    🧵✂️📏
+</div>
+
+<div class="story">
+    Ibu mempunyai kain sepanjang 2 meter.
+    Ibu memotong 75 cm untuk membuat taplak meja.
+</div>
+
+<div class="question-text">
+    Berapa cm kain yang masih tersisa?
+</div>
+
+<button class="option" onclick="answer(this, false, 5)">
+    A. 75 cm
+</button>
+
+<button class="option" onclick="answer(this, false, 5)">
+    B. 100 cm
+</button>
+
+<button class="option" onclick="answer(this, true, 5)">
+    C. 125 cm
+</button>
+
+<button class="option" onclick="answer(this, false, 5)">
+    D. 175 cm
+</button>
+
+<div id="f5" class="feedback"></div>
+
+</div>
+
+
+<div id="score" class="hidden"></div>
+
+<button class="main-button" onclick="showScore()">
+    🏆 Lihat Nilai
+</button>
+
+<button class="main-button" onclick="location.reload()">
+    🔄 Main Lagi
+</button>
+
+<div class="footer">
+    ❤️ Belajar Matematika bersama Ibu Ega ❤️<br>
+    SD Negeri 71 Maluku Tengah
+</div>
+
+</div>
+
+
+<script>
+
+let totalScore = 0;
+let answered = [];
+
+let audioContext = null;
+
+
+function startAudio() {
+
+    try {
+
+        if (!audioContext) {
+
+            audioContext =
+                new (
+                    window.AudioContext ||
+                    window.webkitAudioContext
+                )();
+        }
+
+        if (audioContext.state === "suspended") {
+            audioContext.resume();
+        }
+
+    } catch (error) {
+        console.log("Audio tidak tersedia");
+    }
+}
+
+
+function playTone(
+    frequency,
+    duration,
+    type,
+    volume
+) {
+
+    if (!audioContext) return;
+
+    let osc =
+        audioContext.createOscillator();
+
+    let gain =
+        audioContext.createGain();
+
+    osc.type = type;
+
+    osc.frequency.value =
+        frequency;
+
+    gain.gain.setValueAtTime(
+        volume,
+        audioContext.currentTime
+    );
+
+    gain.gain.exponentialRampToValueAtTime(
+        0.001,
+        audioContext.currentTime + duration
+    );
+
+    osc.connect(gain);
+
+    gain.connect(
+        audioContext.destination
+    );
+
+    osc.start();
+
+    osc.stop(
+        audioContext.currentTime + duration
+    );
+}
+
+
+function correctSound() {
+
+    startAudio();
+
+    playTone(
+        523,
+        0.25,
+        "sine",
+        0.25
+    );
+
+    setTimeout(function() {
+
+        playTone(
+            659,
+            0.25,
+            "sine",
+            0.25
+        );
+
+    }, 150);
+
+    setTimeout(function() {
+
+        playTone(
+            784,
+            0.4,
+            "sine",
+            0.25
+        );
+
+    }, 300);
+}
+
+
+function wrongSound() {
+
+    startAudio();
+
+    playTone(
+        250,
+        0.35,
+        "sawtooth",
+        0.15
+    );
+
+    setTimeout(function() {
+
+        playTone(
+            150,
+            0.4,
+            "sawtooth",
+            0.15
+        );
+
+    }, 180);
+}
+
+
+function answer(
+    element,
+    correct,
+    number
+) {
+
+    if (answered[number]) {
+        return;
+    }
+
+    answered[number] = true;
+
+    let feedback =
+        document.getElementById(
+            "f" + number
+        );
+
+
+    if (correct) {
+
+        totalScore++;
+
+        element.classList.add(
+            "correct"
+        );
+
+        feedback.innerHTML =
+            "🎉 Hebat! Jawaban benar! 👏";
+
+        feedback.style.color =
+            "#2e7d32";
+
+        correctSound();
+
+    } else {
+
+        element.classList.add(
+            "wrong"
+        );
+
+        feedback.innerHTML =
+            "❌ Belum tepat. Coba lagi pada soal berikutnya!";
+
+        feedback.style.color =
+            "#d32f2f";
+
+        wrongSound();
+
+    }
+
+}
+
+
+function showScore() {
+
+    let scoreBox =
+        document.getElementById(
+            "score"
+        );
+
+    scoreBox.classList.remove(
+        "hidden"
+    );
+
+    scoreBox.innerHTML =
+        "🌟 Nilaimu: " +
+        totalScore +
+        " / 5 🌟";
+
+
+    if (totalScore === 5) {
+
+        scoreBox.innerHTML +=
+            "<br>🏆 SEMPURNA! Hebat sekali! 👏👏👏";
+
+    }
+
+    else if (totalScore >= 4) {
+
+        scoreBox.innerHTML +=
+            "<br>🎉 Sangat bagus!";
+
+    }
+
+    else if (totalScore >= 3) {
+
+        scoreBox.innerHTML +=
+            "<br>😊 Bagus! Terus berlatih!";
+
+    }
+
+    else {
+
+        scoreBox.innerHTML +=
+            "<br>💪 Semangat belajar lagi!";
+    }
+
+
+    scoreBox.scrollIntoView({
+        behavior: "smooth"
+    });
+}
+
+</script>
+
+</body>
+</html>
